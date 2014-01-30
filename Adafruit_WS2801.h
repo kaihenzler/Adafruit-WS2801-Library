@@ -19,11 +19,6 @@ class Adafruit_WS2801 {
 
   // Configurable pins:
   Adafruit_WS2801(uint16_t n, uint8_t dpin, uint8_t cpin, uint8_t order=WS2801_RGB);
-  Adafruit_WS2801(uint16_t x, uint16_t y, uint8_t dpin, uint8_t cpin, uint8_t order=WS2801_RGB);
-  // Use SPI hardware; specific pins only:
-  Adafruit_WS2801(uint16_t n, uint8_t order=WS2801_RGB);
-  // Empty constructor; init pins/strand length/data order later:
-  Adafruit_WS2801();
   // Release memory (as needed):
   ~Adafruit_WS2801();
 
@@ -35,7 +30,6 @@ class Adafruit_WS2801 {
     setPixelColor(uint16_t x, uint16_t y, uint8_t r, uint8_t g, uint8_t b),
     setPixelColor(uint16_t x, uint16_t y, uint32_t c),
     updatePins(uint8_t dpin, uint8_t cpin), // Change pins, configurable
-    updatePins(void), // Change pins, hardware SPI
     updateLength(uint16_t n), // Change strand length
     updateOrder(uint8_t order); // Change data order
   uint16_t
@@ -57,8 +51,7 @@ class Adafruit_WS2801 {
   volatile uint8_t
     *clkport  , *dataport;   // Clock & data PORT registers
   void
-    alloc(uint16_t n),
-    startSPI(void);
+    alloc(uint16_t n);
   boolean
     hardwareSPI, // If 'true', using hardware SPI
     begun;       // If 'true', begin() method was previously invoked

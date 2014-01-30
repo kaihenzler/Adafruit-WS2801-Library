@@ -1,4 +1,3 @@
-#include "SPI.h"
 #include "Adafruit_WS2801.h"
 
 /*****************************************************************************
@@ -14,11 +13,11 @@ Example sketch for driving Adafruit WS2801 pixels!
   high speed PWM drivers for 24 bit color per pixel
   2 pins are required to interface
 
-  Adafruit invests time and resources providing this open source code, 
-  please support Adafruit and open-source hardware by purchasing 
+  Adafruit invests time and resources providing this open source code,
+  please support Adafruit and open-source hardware by purchasing
   products from Adafruit!
 
-  Written by David Kavanagh (dkavanagh@gmail.com).  
+  Written by David Kavanagh (dkavanagh@gmail.com).
   BSD license, all text above must be included in any redistribution
 
 *****************************************************************************/
@@ -38,7 +37,7 @@ uint8_t clockPin = 3;    // Green wire on Adafruit Pixels
 Adafruit_WS2801 strip = Adafruit_WS2801((uint16_t)7, (uint16_t)7, dataPin, clockPin);
 
 void setup() {
-    
+
   strip.begin();
 
   // Update LED contents, to start they are all 'off'
@@ -123,7 +122,7 @@ uint32_t Wheel(byte WheelPos)
    WheelPos -= 85;
    return Color(255 - WheelPos * 3, 0, WheelPos * 3);
   } else {
-   WheelPos -= 170; 
+   WheelPos -= 170;
    return Color(0, WheelPos * 3, 255 - WheelPos * 3);
   }
 }
